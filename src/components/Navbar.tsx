@@ -25,7 +25,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <a href="#" className="font-display text-2xl font-bold text-gradient">
-          ERP<span className="text-foreground">Pro</span>
+          ERP<span className="text-foreground">Braspet</span>
         </a>
 
         {/* Desktop */}
