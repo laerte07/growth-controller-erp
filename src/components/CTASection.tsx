@@ -44,7 +44,7 @@ const CTASection = () => {
                 <span className="text-xs text-muted-foreground mt-2">Sem burocracia. Implantação rápida.</span>
               </div>
               <a
-                href="#contato"
+                href="https://wa.me/5561985170622?text=Ol%C3%A1,%20quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20estrat%C3%A9gica%20do%20ERP%20Braspet.%20Gostaria%20de%20conhecer%20os%20planos%20e%20entender%20qual%20modelo%20de%20investimento%20%C3%A9%20ideal%20para%20minha%20empresa."
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg glass text-foreground font-semibold text-lg hover:bg-secondary transition-all"
               >
                 <MessageCircle className="w-5 h-5" />
