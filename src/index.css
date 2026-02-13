@@ -106,4 +106,104 @@
   .section-padding {
     @apply py-20 md:py-28 px-4;
   }
+
+  /* ===== SPOTLIGHT FOLLOW MOUSE =====
+     Gradiente radial que segue o cursor dentro do card.
+     Depende das CSS vars --x e --y setadas via JS (useSpotlight). */
+  .card-spotlight {
+    position: relative;
+    overflow: hidden;
+  }
+  .card-spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: radial-gradient(
+      400px circle at var(--x, 50%) var(--y, 50%),
+      hsl(var(--primary) / 0.10),
+      transparent 60%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+  .card-spotlight:hover::before,
+  .card-spotlight:focus-visible::before {
+    opacity: 1;
+  }
+
+  /* Spotlight mais forte para cards de planos */
+  .card-spotlight-forte::before {
+    background: radial-gradient(
+      350px circle at var(--x, 50%) var(--y, 50%),
+      hsl(var(--primary) / 0.18),
+      transparent 55%
+    );
+  }
+}
+
+/* ===== GRUPO HOVER CARDS =====
+   Efeito: ao hover em um card do grupo, os demais ficam opacos.
+   - .grupo-hover-normal: opacidade 0.55 nos inativos (features/benefícios)
+   - .grupo-hover-forte: opacidade 0.45 nos inativos (planos/preços)
+   Acessibilidade: funciona com focus-visible via :has(:focus-visible)
+   Mobile: sem efeito de dimming (sem hover real) */
+
+@media (hover: hover) {
+  /* === Intensidade Normal (Features / Benefícios) === */
+  .grupo-hover-normal:hover > *,
+  .grupo-hover-normal:has(:focus-visible) > * {
+    opacity: 0.55;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .grupo-hover-normal > *:hover,
+  .grupo-hover-normal > *:focus-visible {
+    opacity: 1 !important;
+    transform: translateY(-4px) scale(1.02);
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: 0 0 24px -6px hsl(var(--primary) / 0.25),
+                0 8px 20px -8px hsl(0 0% 0% / 0.3);
+  }
+
+  /* === Intensidade Forte (Planos / Preços) === */
+  .grupo-hover-forte:hover > *,
+  .grupo-hover-forte:has(:focus-visible) > * {
+    opacity: 0.45;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .grupo-hover-forte > *:hover,
+  .grupo-hover-forte > *:focus-visible {
+    opacity: 1 !important;
+    transform: translateY(-10px) scale(1.06);
+    border-color: hsl(var(--primary) / 0.7);
+    box-shadow: 0 0 32px -4px hsl(var(--primary) / 0.35),
+                0 12px 28px -8px hsl(0 0% 0% / 0.4);
+  }
+
+  /* Badge de economia/destaque pulsa sutilmente no card ativo */
+  .grupo-hover-forte > *:hover .badge-pulso,
+  .grupo-hover-forte > *:focus-visible .badge-pulso {
+    animation: pulso-badge 2s ease-in-out infinite;
+  }
+}
+
+/* Animação sutil de pulso para badges */
+@keyframes pulso-badge {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.75; }
+}
+
+/* === Mobile / Touch ===
+   Cards recebem efeito leve no toque/foco, sem dimming do grupo */
+@media (hover: none) {
+  .grupo-hover-cards > *:active,
+  .grupo-hover-cards > *:focus-visible {
+    border-color: hsl(var(--primary) / 0.4);
+    box-shadow: 0 0 16px -6px hsl(var(--primary) / 0.2);
+  }
 }

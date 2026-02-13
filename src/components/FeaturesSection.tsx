@@ -1,5 +1,6 @@
 // ===== SEÇÃO DE FUNCIONALIDADES =====
 // Grid com todos os 9 módulos do sistema ERP
+// Usa CardHoverGroup + spotlight follow mouse para efeito premium
 
 import { motion } from "framer-motion";
 import {
@@ -13,6 +14,8 @@ import {
   Monitor,
   ShoppingCart,
 } from "lucide-react";
+import CardHoverGroup from "./CardHoverGroup";
+import { useSpotlight } from "@/hooks/useSpotlight";
 
 /** Módulos disponíveis no ERP */
 const modulos = [
@@ -26,6 +29,40 @@ const modulos = [
   { icon: Monitor, nome: "PDV – Frente de Caixa", descricao: "Ponto de venda rápido e intuitivo" },
   { icon: ShoppingCart, nome: "Vendas – Pedidos e Orçamentos", descricao: "Gestão completa do ciclo de vendas" },
 ];
+
+/** Card individual de módulo com spotlight */
+const CardModulo = ({
+  modulo,
+  index,
+}: {
+  modulo: (typeof modulos)[0];
+  index: number;
+}) => {
+  const { ref, handlers } = useSpotlight();
+
+  return (
+    <motion.div
+      ref={ref}
+      {...handlers}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.06 }}
+      tabIndex={0}
+      className="relative flex items-start gap-4 p-5 rounded-xl border border-border/50 bg-card/40 card-spotlight transition-all group focus-visible:outline-none"
+    >
+      <div className="relative z-10 flex items-start gap-4">
+        <div className="flex-shrink-0 w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-focus-visible:bg-primary/20 transition-colors">
+          <modulo.icon className="w-5 h-5 text-primary" />
+        </div>
+        <div>
+          <h3 className="font-display font-semibold text-lg mb-1">{modulo.nome}</h3>
+          <p className="text-sm text-muted-foreground">{modulo.descricao}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 const FeaturesSection = () => {
   return (
@@ -48,27 +85,15 @@ const FeaturesSection = () => {
           </p>
         </motion.div>
 
-        {/* Grid de módulos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Grid de módulos com hover group */}
+        <CardHoverGroup
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          intensidade="normal"
+        >
           {modulos.map((modulo, index) => (
-            <motion.div
-              key={modulo.nome}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.06 }}
-              className="flex items-start gap-4 p-5 rounded-xl border border-border/50 bg-card/40 hover:bg-secondary/30 transition-all group"
-            >
-              <div className="flex-shrink-0 w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                <modulo.icon className="w-5 h-5 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-display font-semibold text-lg mb-1">{modulo.nome}</h3>
-                <p className="text-sm text-muted-foreground">{modulo.descricao}</p>
-              </div>
-            </motion.div>
+            <CardModulo key={modulo.nome} modulo={modulo} index={index} />
           ))}
-        </div>
+        </CardHoverGroup>
       </div>
     </section>
   );
