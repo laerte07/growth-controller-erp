@@ -1,3 +1,6 @@
+// ===== PÁGINA PRINCIPAL =====
+// Landing page do ERP Braspet — composição de todas as seções
+
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import GrowthSection from "@/components/GrowthSection";

@@ -1,3 +1,6 @@
+// ===== SEÇÃO DE FUNCIONALIDADES =====
+// Grid com todos os 9 módulos do sistema ERP
+
 import { motion } from "framer-motion";
 import {
   Users,
@@ -11,22 +14,24 @@ import {
   ShoppingCart,
 } from "lucide-react";
 
-const modules = [
-  { icon: Users, name: "Cadastros Básicos", desc: "Clientes, fornecedores, produtos e categorias" },
-  { icon: FileInput, name: "Compras – Notas de Entrada", desc: "Controle completo de compras e notas fiscais" },
-  { icon: Package, name: "Estoque – Cadastro e Controle", desc: "Gestão de estoque em tempo real com alertas" },
-  { icon: Wallet, name: "Financeiro Básico", desc: "Contas a pagar, receber e fluxo de caixa" },
-  { icon: BarChart3, name: "Financeiro Avançado", desc: "DRE, conciliação bancária e relatórios" },
-  { icon: ScrollText, name: "Logs Avançados", desc: "Rastreabilidade total de ações no sistema" },
-  { icon: FileCheck, name: "Nota Fiscal Eletrônica", desc: "Emissão de NF-e, NFC-e com envio automático" },
-  { icon: Monitor, name: "PDV – Frente de Caixa", desc: "Ponto de venda rápido e intuitivo" },
-  { icon: ShoppingCart, name: "Vendas – Pedidos e Orçamentos", desc: "Gestão completa do ciclo de vendas" },
+/** Módulos disponíveis no ERP */
+const modulos = [
+  { icon: Users, nome: "Cadastros Básicos", descricao: "Clientes, fornecedores, produtos e categorias" },
+  { icon: FileInput, nome: "Compras – Notas de Entrada", descricao: "Controle completo de compras e notas fiscais" },
+  { icon: Package, nome: "Estoque – Cadastro e Controle", descricao: "Gestão de estoque em tempo real com alertas" },
+  { icon: Wallet, nome: "Financeiro Básico", descricao: "Contas a pagar, receber e fluxo de caixa" },
+  { icon: BarChart3, nome: "Financeiro Avançado", descricao: "DRE, conciliação bancária e relatórios" },
+  { icon: ScrollText, nome: "Logs Avançados", descricao: "Rastreabilidade total de ações no sistema" },
+  { icon: FileCheck, nome: "Nota Fiscal Eletrônica", descricao: "Emissão de NF-e, NFC-e com envio automático" },
+  { icon: Monitor, nome: "PDV – Frente de Caixa", descricao: "Ponto de venda rápido e intuitivo" },
+  { icon: ShoppingCart, nome: "Vendas – Pedidos e Orçamentos", descricao: "Gestão completa do ciclo de vendas" },
 ];
 
 const FeaturesSection = () => {
   return (
     <section id="funcionalidades" className="section-padding bg-card/30">
       <div className="container mx-auto">
+        {/* Título da seção */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -43,10 +48,11 @@ const FeaturesSection = () => {
           </p>
         </motion.div>
 
+        {/* Grid de módulos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {modules.map((mod, index) => (
+          {modulos.map((modulo, index) => (
             <motion.div
-              key={mod.name}
+              key={modulo.nome}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -54,11 +60,11 @@ const FeaturesSection = () => {
               className="flex items-start gap-4 p-5 rounded-xl border border-border/50 bg-card/40 hover:bg-secondary/30 transition-all group"
             >
               <div className="flex-shrink-0 w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                <mod.icon className="w-5 h-5 text-primary" />
+                <modulo.icon className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h3 className="font-display font-semibold text-lg mb-1">{mod.name}</h3>
-                <p className="text-sm text-muted-foreground">{mod.desc}</p>
+                <h3 className="font-display font-semibold text-lg mb-1">{modulo.nome}</h3>
+                <p className="text-sm text-muted-foreground">{modulo.descricao}</p>
               </div>
             </motion.div>
           ))}

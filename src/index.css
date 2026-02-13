@@ -1,56 +1,70 @@
+/* ===== IMPORTAÇÃO DE FONTES ===== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ===== VARIÁVEIS DO DESIGN SYSTEM ===== */
 @layer base {
   :root {
+    /* Fundo escuro premium */
     --background: 220 15% 8%;
     --foreground: 210 20% 92%;
 
+    /* Cards e superfícies */
     --card: 220 14% 11%;
     --card-foreground: 210 20% 92%;
 
     --popover: 220 14% 11%;
     --popover-foreground: 210 20% 92%;
 
-    --primary: 152 72% 46%;
-    --primary-foreground: 220 15% 8%;
+    /* Azul tecnológico premium — #2563EB */
+    --primary: 217 91% 53%;
+    --primary-foreground: 0 0% 100%;
 
+    /* Variações de azul para gradientes */
+    --primary-dark: 224 76% 40%;
+    --primary-light: 213 94% 68%;
+
+    /* Superfícies secundárias */
     --secondary: 220 14% 16%;
     --secondary-foreground: 210 20% 85%;
 
     --muted: 220 12% 14%;
     --muted-foreground: 215 15% 55%;
 
-    --accent: 152 72% 46%;
-    --accent-foreground: 220 15% 8%;
+    --accent: 217 91% 53%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
+    /* Bordas e inputs */
     --border: 220 12% 18%;
     --input: 220 12% 18%;
-    --ring: 152 72% 46%;
+    --ring: 217 91% 53%;
 
     --radius: 0.75rem;
 
-    --glow: 152 72% 46%;
+    /* Efeitos e superfícies */
+    --glow: 217 91% 53%;
     --surface: 220 14% 13%;
     --surface-hover: 220 14% 17%;
 
+    /* Sidebar */
     --sidebar-background: 220 15% 8%;
     --sidebar-foreground: 210 20% 92%;
-    --sidebar-primary: 152 72% 46%;
-    --sidebar-primary-foreground: 220 15% 8%;
+    --sidebar-primary: 217 91% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 14% 16%;
     --sidebar-accent-foreground: 210 20% 85%;
     --sidebar-border: 220 12% 18%;
-    --sidebar-ring: 152 72% 46%;
+    --sidebar-ring: 217 91% 53%;
   }
 }
 
+/* ===== ESTILOS BASE ===== */
 @layer base {
   * {
     @apply border-border;
@@ -66,23 +80,29 @@
   }
 }
 
+/* ===== UTILITÁRIOS CUSTOMIZADOS ===== */
 @layer utilities {
+  /* Gradiente de texto azul */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-emerald-300;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400;
   }
 
+  /* Borda com efeito glow azul */
   .glow-border {
     box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.3), inset 0 1px 0 0 hsl(var(--primary) / 0.1);
   }
 
+  /* Glow suave para destaque */
   .glow-soft {
     box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.2);
   }
 
+  /* Efeito glassmorphism */
   .glass {
     @apply bg-card/60 backdrop-blur-xl border border-border/50;
   }
 
+  /* Padding padrão das seções */
   .section-padding {
     @apply py-20 md:py-28 px-4;
   }
