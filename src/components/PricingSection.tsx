@@ -180,7 +180,7 @@ const PricingSection = () => {
 
         {/* Grid de planos com hover group forte */}
         <CardHoverGroup
-          className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto pt-8 overflow-visible"
           intensidade="forte"
         >
           {planos.map((plano, index) => (
