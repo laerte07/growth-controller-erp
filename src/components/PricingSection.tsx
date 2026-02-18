@@ -26,6 +26,7 @@ const planos = [
     ],
     destaque: false,
     badgeEconomia: "Comece sem Compromisso",
+    badgeIntensidade: "sutil" as const,
   },
   {
     icon: Star,
@@ -43,6 +44,7 @@ const planos = [
     ],
     destaque: true,
     badgeEconomia: null,
+    badgeIntensidade: "destaque" as const,
   },
   {
     icon: Crown,
@@ -60,6 +62,7 @@ const planos = [
     ],
     destaque: false,
     badgeEconomia: "Máxima Economia",
+    badgeIntensidade: "medio" as const,
   },
 ];
 
@@ -84,20 +87,20 @@ const CardPlano = ({
       tabIndex={0}
       className={`relative rounded-2xl p-8 flex flex-col card-spotlight card-spotlight-forte transition-all focus-visible:outline-none ${
         plano.destaque
-          ? "border-2 border-primary glow-border bg-card"
+          ? "border-2 border-primary glow-border bg-card card-borda-animada"
           : "border border-border/50 bg-card/60"
       }`}
     >
-      {/* Badge "Melhor Custo-Benefício" no plano destacado */}
+      {/* Badge "Escolha Inteligente" no plano destacado */}
       {plano.destaque && (
-        <div className="badge-pulso absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-primary-foreground text-sm font-semibold whitespace-nowrap z-20">
+        <div className={`badge-pulso badge-${plano.badgeIntensidade} absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-primary-foreground text-sm font-semibold whitespace-nowrap z-20`}>
           {plano.selo}
         </div>
       )}
 
-      {/* Selo de economia no plano Compra Total */}
+      {/* Selo de economia nos outros planos */}
       {plano.badgeEconomia && (
-        <div className="badge-pulso absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-accent text-accent-foreground text-sm font-semibold whitespace-nowrap z-20">
+        <div className={`badge-pulso badge-${plano.badgeIntensidade} absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-primary-foreground text-sm font-semibold whitespace-nowrap z-20`}>
           {plano.badgeEconomia}
         </div>
       )}

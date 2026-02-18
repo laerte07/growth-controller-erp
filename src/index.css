@@ -200,6 +200,84 @@
   50% { opacity: 0.75; }
 }
 
+/* ===== HIERARQUIA VISUAL DE BADGES =====
+   Três intensidades para direcionamento inconsciente:
+   - sutil: Assinatura (opacidade reduzida, glow discreto)
+   - destaque: Híbrido (azul vibrante, glow forte)
+   - medio: Elite (intermediário) */
+
+.badge-sutil {
+  background: hsl(var(--primary) / 0.75) !important;
+  box-shadow: 0 0 10px -3px hsl(var(--primary) / 0.2);
+}
+
+.badge-destaque {
+  background: hsl(var(--primary)) !important;
+  box-shadow: 0 0 20px -3px hsl(var(--primary) / 0.5),
+              0 0 8px -2px hsl(var(--primary) / 0.3);
+  font-weight: 700 !important;
+  letter-spacing: 0.02em;
+}
+
+.badge-medio {
+  background: hsl(var(--primary) / 0.88) !important;
+  box-shadow: 0 0 14px -3px hsl(var(--primary) / 0.3);
+}
+
+/* ===== BORDA ANIMADA GRADIENTE — PLANO HÍBRIDO ===== */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card-borda-animada {
+  position: relative;
+}
+
+.card-borda-animada::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(
+    270deg,
+    hsl(var(--primary) / 0.6),
+    hsl(var(--primary-light) / 0.4),
+    hsl(var(--primary) / 0.8),
+    hsl(var(--primary-dark) / 0.5),
+    hsl(var(--primary) / 0.6)
+  );
+  background-size: 300% 300%;
+  animation: gradientMove 10s linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Glow externo sutil no card Híbrido */
+.card-borda-animada {
+  box-shadow: 0 0 28px -8px hsl(var(--primary) / 0.2) !important;
+}
+
+/* Mobile: borda estática sem animação */
+@media (hover: none) {
+  .card-borda-animada::after {
+    animation: none;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary) / 0.6),
+      hsl(var(--primary-light) / 0.4)
+    );
+    background-size: 100% 100%;
+  }
+}
+
 /* === Mobile / Touch ===
    Cards recebem efeito leve no toque/foco, sem dimming do grupo */
 @media (hover: none) {
