@@ -112,12 +112,14 @@
      Depende das CSS vars --x e --y setadas via JS (useSpotlight). */
   .card-spotlight {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
   }
   .card-spotlight::before {
     content: "";
     position: absolute;
     inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
     opacity: 0;
     transition: opacity 0.3s ease;
     background: radial-gradient(
