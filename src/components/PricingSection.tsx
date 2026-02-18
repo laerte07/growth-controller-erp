@@ -16,7 +16,7 @@ const planos = [
     selo: "Flexível",
     preco: "129,97",
     periodo: "/mês",
-    descricao: "Ideal para quem quer baixo investimento inicial e flexibilidade total.",
+    descricao: "Ideal para quem quer baixo investimento inicial e flexibilidade total",
     recursos: [
       "Todos os módulos inclusos",
       "Atualizações automáticas",
@@ -25,15 +25,15 @@ const planos = [
       "Cancele quando quiser",
     ],
     destaque: false,
-    badgeEconomia: "Quero testar sem risco",
+    badgeEconomia: "Comece sem Compromisso",
   },
   {
     icon: Star,
     nome: "Híbrido",
-    selo: "Preferido pelas Empresas",
+    selo: "Escolha Inteligente",
     preco: "999,97",
     complemento: "+ R$ 45,99/mês",
-    descricao: "Economia superior a 40% no custo mensal equivalente já no primeiro ano.",
+    descricao: "Economia superior a 40% no custo mensal equivalente já no primeiro ano",
     recursos: [
       "Todos os módulos inclusos",
       "Atualizações automáticas",
@@ -50,7 +50,7 @@ const planos = [
     selo: "Máxima Economia",
     preco: "2.999,97",
     periodo: " (36 meses)",
-    descricao: "Pague uma vez e economize o equivalente a 12 meses de sistema.Até 12x no cartão e zero boletos pelos próximos 24 meses.",
+    descricao: "Invista uma única vez e economize R$ 1.678,95. Parcelamento em até 12x e liberdade total de mensalidades por 24 meses",
     recursos: [
       "Todos os módulos inclusos",
       "Atualizações por 36 meses",
@@ -170,11 +170,11 @@ const PricingSection = () => {
           className="text-center mb-16"
         >
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
-            Você escolhe como{" "}
-            <span className="text-gradient">quer investir</span>
+            O próximo passo da sua gestão{" "}
+            <span className="text-gradient">começa aqui</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Três modelos pensados para diferentes momentos da sua empresa.
+            Modelos flexíveis para empresas que querem controle e crescimento.
           </p>
         </motion.div>
 
