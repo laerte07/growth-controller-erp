@@ -59,7 +59,7 @@ const planos = [
       "Sem boletos por 2 anos",
     ],
     destaque: false,
-    badgeEconomia: "Economize R$ 1.678,95",
+    badgeEconomia: "Máxima Economia",
   },
 ];
 
