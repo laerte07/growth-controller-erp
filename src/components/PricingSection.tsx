@@ -25,7 +25,7 @@ const planos = [
       "Cancele quando quiser",
     ],
     destaque: false,
-    badgeEconomia: null,
+    badgeEconomia: "Sem Fidelidade",
   },
   {
     icon: Star,
