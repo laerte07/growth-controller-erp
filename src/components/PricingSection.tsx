@@ -34,7 +34,7 @@ const planos = [
     selo: "Escolha Inteligente",
     preco: "999,97",
     complemento: "+ R$ 45,99/mês",
-    descricao: "Economia superior a 40% no custo mensal equivalente já no primeiro ano",
+    descricao: "Economia superior a 40% no custo mensal equivalente já no primeiro ano. Ideal para empresas em crescimento.",
     recursos: [
       "Todos os módulos inclusos",
       "Atualizações automáticas",
@@ -52,7 +52,7 @@ const planos = [
     selo: "Máxima Economia",
     preco: "2.999,97",
     periodo: " (36 meses)",
-    descricao: "Invista uma única vez e economize R$ 1.678,95. Parcelamento em até 12x e liberdade total de mensalidades por 24 meses",
+    descricao: "Economize R$ 1.678,95 pagando apenas uma vez. Até 12x no cartão e zero mensalidades por 24 meses",
     recursos: [
       "Todos os módulos inclusos",
       "Atualizações por 36 meses",
