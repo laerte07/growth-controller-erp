@@ -25,12 +25,12 @@ const planos = [
       "Cancele quando quiser",
     ],
     destaque: false,
-    badgeEconomia: "Sem Fidelidade",
+    badgeEconomia: "Quero testar sem risco",
   },
   {
     icon: Star,
     nome: "Híbrido",
-    selo: "Melhor Custo-Benefício",
+    selo: "Preferido pelas Empresas",
     preco: "999,97",
     complemento: "+ R$ 45,99/mês",
     descricao: "Economia superior a 40% no custo mensal equivalente já no primeiro ano.",
@@ -46,11 +46,11 @@ const planos = [
   },
   {
     icon: Crown,
-    nome: "Compra Total",
+    nome: "Plano Elite",
     selo: "Máxima Economia",
     preco: "2.999,97",
     periodo: " (36 meses)",
-    descricao: "Como ganhar 1 ano de sistema grátis. Até 12x no cartão, sem boletos por 2 anos.",
+    descricao: "Pague uma vez e economize o equivalente a 12 meses de sistema.Até 12x no cartão e zero boletos pelos próximos 24 meses.",
     recursos: [
       "Todos os módulos inclusos",
       "Atualizações por 36 meses",
