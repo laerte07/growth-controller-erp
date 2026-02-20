@@ -27,6 +27,7 @@ const planos = [
     destaque: false,
     badgeEconomia: "Comece sem Compromisso",
     badgeIntensidade: "sutil" as const,
+    link: "https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=80855b163593407e8426bfdf6f8b3f47",
   },
   {
     icon: Star,
@@ -45,6 +46,7 @@ const planos = [
     destaque: true,
     badgeEconomia: null,
     badgeIntensidade: "destaque" as const,
+    link: "https://www.mercadopago.com.br/subscriptions/checkout?preapproval_plan_id=52615fff55cc4efbba51c6188dc9a43d",
   },
   {
     icon: Crown,
@@ -63,6 +65,7 @@ const planos = [
     destaque: false,
     badgeEconomia: "Máxima Economia",
     badgeIntensidade: "medio" as const,
+    link: "https://mpago.li/2ynzrg3",
   },
 ];
 
@@ -146,7 +149,9 @@ const CardPlano = ({
 
         {/* Botão de ação */}
         <a
-          href="#contato"
+          href={plano.link}
+          target="_blank"
+          rel="noopener noreferrer"
           className={`w-full inline-flex items-center justify-center py-3 rounded-lg font-semibold transition-all ${
             plano.destaque
               ? "bg-primary text-primary-foreground hover:brightness-110"
