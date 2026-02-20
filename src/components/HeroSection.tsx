@@ -3,7 +3,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
-import heroDashboard from "@/assets/hero-dashboard.png";
+import heroDashboard from "@/assets/hero-dashboard1.png";
 
 const HeroSection = () => {
   return (
